@@ -3,6 +3,7 @@
 //Created: Jan 30th 2019
 //Modified: Jan 31st 2019
 //Modified: Feb 1st 2019 - Passed - 82/100
+//Modified: Feb 19th 2019
 
 
 import edu.princeton.cs.algs4.StdRandom;
@@ -11,7 +12,7 @@ import edu.princeton.cs.algs4.StdStats;
 public class PercolationStats {
 
     private static final double CONFIDENCE_VAL =1.96;
-    private Percolation p;
+    //private Percolation p;
     private int sizeofonerow;
     private int total_trials;
     private int gridsize;
@@ -25,7 +26,7 @@ public class PercolationStats {
         gridsize=n*n;
         arr_mean= new double[trials];
 
-        p= new Percolation(n);
+        //p= new Percolation(n);
 
         conduct_trials();
     }
@@ -47,6 +48,7 @@ public class PercolationStats {
     {
         for(int i=0;i<total_trials;++i)
         {
+            Percolation p = new Percolation(sizeofonerow);
             while(!p.percolates())
             {
                 int openRandomRow= StdRandom.uniform(1,(sizeofonerow+1));
