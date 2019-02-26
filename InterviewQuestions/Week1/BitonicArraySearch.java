@@ -51,20 +51,25 @@ public class BitonicArraySearch {
     public static int searchKeyInBitonicArray(int key, int[]a){
 
         int index=BitonicArraySearch.findBitonicPoint(a,0,a.length-1);
-        if(key>a[index]) return -1;
 
-        if(key==a[index])return index;
+        if(index!=-1) {
+            if (key > a[index]) return -1;
 
-        int ascBinSearchVal=BitonicArraySearch.ascendingBinarySearch(a,key,0,index-1);
-        if(ascBinSearchVal!=-1)
-            return ascBinSearchVal;
-        else return BitonicArraySearch.descendingBinarySearch(a,key,index+1,a.length-1);
+            if (key == a[index]) return index;
+
+            int ascBinSearchVal = BitonicArraySearch.ascendingBinarySearch(a, key, 0, index - 1);
+            if (ascBinSearchVal != -1)
+                return ascBinSearchVal;
+            else return BitonicArraySearch.descendingBinarySearch(a, key, index + 1, a.length - 1);
+        }
+        else System.out.println("The given array is not a bitonic array!");
+        return -1;
     }
 
 
     public static void main(String[] args){
 
-        int[] a={8, 10, 20, 80, 100, 200, 400, 500, 3, 2, 1};
+        int[] a={8, 10, 20, 80, 100, 200, 400, 500,500};
 
         int key= 80;
 
