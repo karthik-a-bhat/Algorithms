@@ -24,6 +24,7 @@ public class LinkedStackOfStrings {
     }
 
     public String pop(){
+        if(size<=0) throw new ArrayIndexOutOfBoundsException("Stack underflow!");
         String item=first.item;
         first=first.next;
         size--;
